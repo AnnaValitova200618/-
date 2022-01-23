@@ -1,0 +1,57 @@
+﻿<Window x:Class="ПКФСО.PresidiumWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ПКФСО"
+        mc:Ignorable="d"
+        Title="Президиум" Height="650" Width="1000">
+
+    <Window.Resources>
+        <ContextMenu x:Key="listMenu">
+            <MenuItem Header="Добавить" Click="AddPresidium"/>
+            <MenuItem Header="Удалить" Click="DeletePresidium"/>
+        </ContextMenu>
+    </Window.Resources>
+
+    <Grid Background="DarkOrange">
+        
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Border MinHeight="570" Margin="20" Background="AliceBlue" VerticalAlignment="Center" CornerRadius="50" Grid.Column="0">
+            <TextBlock Text="Состав действующего Президиума :" Margin="20" FontSize="20" FontWeight="Bold"/>
+            
+        </Border>
+
+        <Border MinHeight="570" Margin="20" Background="AliceBlue" VerticalAlignment="Center" CornerRadius="50" Grid.Column="1">
+            <StackPanel>
+                <TextBlock Text="Информация" Margin="20" FontSize="20" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+
+        <ListBox   Margin="30,80,30,80"
+            ItemsSource="{Binding Presidiums}" 
+                 SelectedItem="{Binding SelectedPresidium}"
+                 DisplayMemberPath="LastName"
+                 ContextMenu="{StaticResource listMenu}" />
+              <StackPanel Grid.Column="1"
+                DataContext="{Binding SelectedPresidium}"
+                Orientation="Vertical" Height="182" Width="387">
+                  
+                    <Label Content="Имя"/>
+                    <TextBox Text="{Binding FirstName}"/>
+                    <Label Content="Отчество"/>
+                    <TextBox Text="{Binding Patronymic}"/>
+                    <Label Content="Фамилия"/>
+                    <TextBox Text="{Binding LastName}"/>
+                    <Label Content="Должность"/>
+                    <TextBox Text="{Binding Staff}"/>
+
+              </StackPanel>
+           
+
+    </Grid>
+</Window>

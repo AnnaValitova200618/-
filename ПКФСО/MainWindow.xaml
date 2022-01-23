@@ -1,0 +1,33 @@
+﻿<Window x:Class="ПКФСО.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ПКФСО"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="ПКФСО" Height="650" Width="1000">
+    
+    
+    <Grid Background="DarkOrange">
+        <Border MinHeight="570" Margin="20" Background="AliceBlue" VerticalAlignment="Center" CornerRadius="50">
+            <StackPanel>
+                <TextBlock Text="Реестр спортсменов" FontSize="30" FontWeight="Bold" Margin="350,10,0,0"  />
+                <MenuItem  Header="Президиум" FontSize="20" FontWeight="Bold" Margin="20" Click="OpenPresidium"/>
+                <MenuItem Header="Тренеры" FontSize="20" FontWeight="Bold" Margin="20" Click="OpenCoach" />
+                <MenuItem Header="Спортсмены" FontSize="20" FontWeight="Bold" Margin="20" Click="OpenSportsman"/>
+
+            </StackPanel>
+            
+                 
+        </Border>
+        
+
+        
+
+        
+        
+        
+        
+    </Grid>
+</Window>
