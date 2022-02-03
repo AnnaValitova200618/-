@@ -6,28 +6,49 @@
         xmlns:local="clr-namespace:ПКФСО"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="ПКФСО" Height="650" Width="1000">
-    
-    
-    <Grid Background="DarkOrange">
-        <Border MinHeight="570" Margin="20" Background="AliceBlue" VerticalAlignment="Center" CornerRadius="50">
-            <StackPanel>
-                <TextBlock Text="Реестр спортсменов" FontSize="30" FontWeight="Bold" Margin="350,10,0,0"  />
-                <MenuItem  Header="Президиум" FontSize="20" FontWeight="Bold" Margin="20" Click="OpenPresidium"/>
-                <MenuItem Header="Тренеры" FontSize="20" FontWeight="Bold" Margin="20" Click="OpenCoach" />
-                <MenuItem Header="Спортсмены" FontSize="20" FontWeight="Bold" Margin="20" Click="OpenSportsman"/>
+        Title="ПКФСО" Height="650" Width="1000" >
+    <Window.Resources>
 
+    </Window.Resources>
+
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Border Height="Auto"  Background="#FFFFC81F" VerticalAlignment="Center" CornerRadius="50" Grid.Row="0" HorizontalAlignment="Center" Margin="102.688,10,126.688,10" Width="764.224">
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+               
+                    <MenuItem  Header="Президиум" FontSize="24" FontWeight="Bold" Margin="20" Click="OpenPresidium" 
+                               FontFamily="Comic Sans MS" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" BorderBrush="#FF080707" BorderThickness="2" Cursor="" RenderTransformOrigin="0,0" Foreground="Black" />
+                
+
+                
+                    <MenuItem Header="Тренеры" FontSize="24" FontWeight="Bold" Margin="20" Click="OpenCoach" FontFamily="Comic Sans MS"
+                              Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" BorderBrush="#FF080707" BorderThickness="2"/>
+                
+
+                    <MenuItem Header="Спортсмены" FontSize="24" FontWeight="Bold" Margin="20" Click="OpenSportsman" FontFamily="Comic Sans MS"
+                              Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" BorderBrush="#FF080707" BorderThickness="2"/>
+                
             </StackPanel>
-            
-                 
         </Border>
-        
-
-        
-
-        
-        
-        
-        
+        <Frame Grid.Row="1" Content="{Binding CurrentPage}" NavigationUIVisibility="Hidden">
+            <Frame.Background>
+                <ImageBrush ImageSource="depositphotos_220155120-stock-illustration-orienteering-sport-equipment-vector-illustration.jpg" Stretch="None">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="2.95" ScaleY="1.6"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Frame.Background>
+        </Frame>
     </Grid>
 </Window>

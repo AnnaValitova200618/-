@@ -20,7 +20,7 @@ namespace ПКФСО
     /// <summary>
     /// Логика взаимодействия для PresidiumWin.xaml
     /// </summary>
-    public partial class PresidiumWin : Window, INotifyPropertyChanged
+    public partial class PresidiumWin : Page, INotifyPropertyChanged
     { 
     private Presidium selectedPresidium;
 

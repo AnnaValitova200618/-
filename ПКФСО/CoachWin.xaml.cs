@@ -20,7 +20,7 @@ namespace ПКФСО
     /// <summary>
     /// Логика взаимодействия для CoachWin.xaml
     /// </summary>
-    public partial class CoachWin : Window, INotifyPropertyChanged
+    public partial class CoachWin : Page, INotifyPropertyChanged
     {
         private Coach selectedCoach;
 
@@ -51,6 +51,7 @@ namespace ПКФСО
         {
             InitializeComponent();
             DataContext = this;
+            
         }
 
         private void AddCoach(object sender, RoutedEventArgs e)

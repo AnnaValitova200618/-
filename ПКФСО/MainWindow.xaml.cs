@@ -21,27 +21,53 @@ namespace ПКФСО
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
-       
+        private Page currentPage;
+        
+        public Page CurrentPage
+        {
+            get => currentPage;
+            set
+            {
+                currentPage = value;
+                Signal();
+            }
+        }
+
+        
+        public MainWindow()
+        {
+            InitializeComponent();
+            DataContext = this;
+            CurrentPage = new PresidiumWin();
+        }
+
+        void Signal([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this,
+                      new PropertyChangedEventArgs(name));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
         private void OpenPresidium(object sender, RoutedEventArgs e)
         {
-            PresidiumWin win = new PresidiumWin();
-            win.ShowDialog();
+            CurrentPage = new PresidiumWin();
 
         }
 
         private void OpenSportsman(object sender, RoutedEventArgs e)
         {
-            SportsmanWin win = new SportsmanWin();
-            win.ShowDialog();
+            CurrentPage = new SportsmanWin();
         }
 
         private void OpenCoach(object sender, RoutedEventArgs e)
         {
-            CoachWin win = new CoachWin();
-            win.ShowDialog();
+            CurrentPage = new CoachWin();
+            
 
         }
+
     }
 }

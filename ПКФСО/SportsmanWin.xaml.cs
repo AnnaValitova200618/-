@@ -20,7 +20,7 @@ namespace ПКФСО
     /// <summary>
     /// Логика взаимодействия для SportsmanWin.xaml
     /// </summary>
-    public partial class SportsmanWin : Window, INotifyPropertyChanged
+    public partial class SportsmanWin : Page, INotifyPropertyChanged
     {
         private Sportsman selectedSportsman;
 

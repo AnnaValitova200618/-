@@ -1,58 +1,67 @@
-﻿<Window x:Class="ПКФСО.CoachWin"
+﻿<Page x:Class="ПКФСО.CoachWin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ПКФСО"
         mc:Ignorable="d"
-        Title="CoachWin" Height="650" Width="1000">
-    <Window.Resources>
+        Title="Тренеры" Height="500" Width="1000">
+    <Page.Resources>
         <ContextMenu x:Key="listMenu">
-            <MenuItem Header="Добавить" Click="AddCoach"/>
-            <MenuItem Header="Удалить" Click="DeleteCoach"/>
+            <MenuItem Header="Добавить тренера" Click="AddCoach"/>
+            <MenuItem Header="Удалить тренера" Click="DeleteCoach"/>
         </ContextMenu>
-    </Window.Resources>
-    <Grid Background="DarkOrange">
+    </Page.Resources>
+    <Grid >
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Border MinHeight="570" Margin="20" Background="AliceBlue" VerticalAlignment="Center" CornerRadius="50" Grid.Column="0">
-            <TextBlock Text="Список тренеров:" Margin="20" FontSize="20" FontWeight="Bold"/>
+        <Border Height="Auto" Margin="20,36.8,20,20"  CornerRadius="50" Grid.Column="0" Background="#FFFFC81F">
+            <TextBlock Text="Список тренеров:" FontSize="20" FontWeight="Bold" Margin="42,10,-42,-10" HorizontalAlignment="Left"/>
 
         </Border>
 
-        <Border MinHeight="570" Margin="20" Background="AliceBlue" VerticalAlignment="Center" CornerRadius="50" Grid.Column="1">
+        <Border Height="Auto" Margin="20,36.8,20,20" Background="#FFFFC81F" CornerRadius="50" Grid.Column="1">
             <StackPanel >
-                <TextBlock Text="Информация" Margin="20" FontSize="20" FontWeight="Bold" />
+                <TextBlock Text="Информация" Margin="20" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
             </StackPanel>
         </Border>
 
-        <ListBox   Margin="30,80,30,80"
+        <ListBox   Margin="30,90,30,60" Background="#FFF1EC9E"
             ItemsSource="{Binding Coachs}" 
                  SelectedItem="{Binding SelectedCoach}"
                  DisplayMemberPath="LastName"
-                 ContextMenu="{StaticResource listMenu}" />
-        <StackPanel Grid.Column="1"
+                 ContextMenu="{StaticResource listMenu}"  />
+        <StackPanel Height="Auto" Grid.Column="1"
                 DataContext="{Binding SelectedCoach}"
-                Orientation="Vertical" Width="400" Margin="48.2,80,48.6,160">
-            <StackPanel>
-                <Label Content="Имя"/>
-                <TextBox Text="{Binding FirstName}"/>
-                <Label Content="Отчество"/>
-                <TextBox Text="{Binding Patronymic}"/>
-                <Label Content="Фамилия"/>
-                <TextBox Text="{Binding LastName}"/>
-                <Label Content="Дата рождения"/>
-                <DatePicker SelectedDate="{Binding Birthday}" />
-                <Label Content="Команда"/>
-                <TextBox Text="{Binding Team}"/>
-                <Label Content="Разряд"/>
-                <TextBox Text="{Binding Сategory}"/>
+                Orientation="Vertical" Width="400" Margin="50,0,50,104.4" VerticalAlignment="Bottom">
+            <StackPanel Height="Auto">
+                <Label Content="Имя" Background="{x:Null}" FontStyle="Italic" FontSize="15"/>
+                <TextBox Text="{Binding FirstName}" Background="#FFF1EC9E"/>
+                <Label Content="Отчество" Background="{x:Null}" FontStyle="Italic" FontSize="15"/>
+                <TextBox Text="{Binding Patronymic}" Background="#FFF1EC9E"/>
+                <Label Content="Фамилия" Background="{x:Null}" FontStyle="Italic" FontSize="15"/>
+                <TextBox Text="{Binding LastName}" Background="#FFF1EC9E"/>
+                <Label Content="Дата рождения" Background="{x:Null}" FontStyle="Italic" FontSize="15"/>
+                <DatePicker SelectedDate="{Binding Birthday}" Background="#FFF1EC9E">
+                    <DatePicker.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                            <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                            <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                            <GradientStop Color="#FF718597" Offset="0.375"/>
+                            <GradientStop Color="#FF4999D4" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DatePicker.BorderBrush>
+                </DatePicker>
+                <Label Content="Команда" Background="{x:Null}" FontStyle="Italic" FontSize="15"/>
+                <TextBox Text="{Binding Team}" Background="#FFF1EC9E"/>
+                <Label Content="Разряд" Background="{x:Null}" FontStyle="Italic" FontSize="15"/>
+                <TextBox Text="{Binding Сategory}" Background="#FFF1EC9E"/>
             </StackPanel>
         </StackPanel>
 
     </Grid>
-</Window>
+</Page>
